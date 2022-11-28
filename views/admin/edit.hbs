@@ -1,0 +1,72 @@
+<section class="gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card text-white bg-primary mb-3" style="border-radius: 1rem;"> {{!--width: 800px; margin-left:
+          -120px;!--}}
+          <div class="card-body p-5 text-center" style="">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Agregar Proyecto Nuevo</h2>
+
+              <form action="/admin/projects/edit" 
+              method="post" enctype="multipart/form-data">
+
+                <input type="hidden" value="{{project.id}}" name="id">
+                
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="name" autocomplete="off" required="required" value="{{project.name}}" />
+                  <label class="form-label">Nombre</label>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="lenguage" autocomplete="off" required="required"
+                    value="{{project.lenguage}}" />
+                  <label class="form-label">Lenguaje</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="type" autocomplete="off" required="required" value="{{project.type}}" />
+                  <label class="form-label">Tipo</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="url" autocomplete="off" required="required" value="{{project.url}}" />
+                  <label class="form-label">URL</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <textarea name="description" class="form-control" autocomplete="off"
+                    style="background: var(--bs-gray-900);">{{project.description}}</textarea>
+                  <label class="form-label">Descripción</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <!--LA IDEA ES PONER LA IMG MINI-->
+                  <p>{{project.image_id}}.jpg</p>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input type="file" name="image" id="image"
+                  class="form-control" autocomplete="off" placeholder="Imagen"
+                    value="{{project.image_id}}" />
+                </div>
+                <div class="">
+                  <p>
+                    <input type="checkbox" name="image_delete" id="image_delete"
+                    class="" value="1" />
+                      Eliminar Imagen Actual?
+                    <input type="hidden" name="original_image" value="{{project.image_id}}" />
+                  </p>
+                </div>
+                {{#if error}}
+                <p class="mb-5 pb-lg-2 mb-0 text-danger">{{message}}</p>
+                {{/if}}
+                
+                <button class="btn btn-outline-light px-5" style="margin-right:60px; margin-top:50px;"
+                  type="submit">Editar</button>
+                <a href="/admin/projects" class="btn btn-outline-light px-5" style="margin-top:50px;margin-right:60px">Salir </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

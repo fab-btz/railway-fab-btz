@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <p class="text-end">
+      Bienvenido {{user}} !
+      <a href="./login/logout" class="btn btn-link">Salir
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </a>
+    </p>
+  </div>
+  <div class="row">
+    <div class="">
+      <h3>Administrador de Proyectos</h3>
+    </div>
+    <div class="text-end">
+      <a href="./projects/add" class="btn btn-link">
+        <i class="fa-solid fa-square-plus"> Nuevo</i>
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover table-responsive-lg ">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Lenguaje</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">URL</th>
+        <th scope="col">Imagén</th>
+        <th scope="col text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if message}}
+				<p class="mb-5 pb-lg-2 mb-0 text-danger">{{message}}</p>
+			{{/if}}
+      {{#each projects}}
+      <tr class="table-dark text-center">
+        <th scope="row">{{id}}</th>
+        <td>{{name}}</td>
+        <td>{{lenguage}}</td>
+        <td>{{type}}</td>
+        <td><a href="{{url}}">Link</a></td>
+        <!--CON LAS 3 llaves muestro html con 2 me traia solo la equiqueta-->
+        <td>{{{image}}}</td>
+
+        <td class="text-center">
+          <a href="/admin/projects/edit/{{id}}" class="btn btn-link" title="Editar">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </a>
+          <a href="/admin/projects/delete/{{id}}" class="btn btn-link" title="Eliminar">
+            <i class="fa-sharp fa-solid fa-trash"></i>
+            <!--/admin/projects/delete/{{id}}-->
+          </a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+      <br><br>
+    </div>
+  </div>
+</div>
